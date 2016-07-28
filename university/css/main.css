@@ -1,0 +1,139 @@
+svg {
+  font: 10px sans-serif;
+}
+
+.radar-chart .area {
+  fill-opacity: 0.7;
+}
+.radar-chart.focus .area {
+  fill-opacity: 0.3;
+}
+.radar-chart.focus .area.focused {
+  fill-opacity: 0.9;
+}
+.area.abc, .abc .circle {
+  fill: none;
+  stroke: #097054;
+}
+.area.def, .def .circle {
+  fill: none;
+  stroke: #FFDE00;
+}
+#button1 {
+  background-color: #097054;
+  width: 175px;
+  padding: 2px;
+}
+#button2 {
+  background-color: #FFDE00;
+  width: 175px;
+  padding: 2px;
+}
+
+.background path {
+  fill: none;
+  stroke: #ddd;
+  shape-rendering: crispEdges;
+}
+
+.foreground path {
+  fill: none;
+  stroke: steelblue;
+}
+
+.brush .extent {
+  fill-opacity: .3;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+  cursor: move;
+}
+
+.chart_link {
+  margin-left: 20px;
+}
+
+.container {
+  text-align: center;
+}
+
+.center-select {
+  margin: auto;
+}
+
+#year_option .wrap, #continent_option .wrap{
+  display: inline-block;
+}
+
+#continent_option div {
+  display: inline-block;
+}
+
+#year_option label, #continent_option label {
+  display: inline-block;
+  text-align: center;
+  margin: 0 0.2em;
+}
+#year_option input[type="radio"], #continent_option input[type="checkbox"] {
+  display: inline-block;
+  margin: 0.5em auto;
+}
+
+.lenged {
+  width: 10px;
+  height: 10px;
+}
+
+path.africa, .africa{
+  stroke: brown;
+  background-color: brown;
+}
+
+path.australia, .australia {
+  stroke:green;
+  background-color: green;
+}
+
+path.asia, .asia {
+  stroke: steelblue;
+  background-color: steelblue;
+}
+
+path.europe, .europe {
+  stroke: purple;
+  background-color: purple;
+}
+
+path.north_america, .north_america {
+  stroke: orange;
+  background-color: orange;
+}
+
+path.south_america, .south_america {
+  stroke: yellow;
+  background-color: yellow;
+}
+
+path.dim {
+  stroke: #ddd;
+  opacity: 0.5;
+}
+
+path.highlight {
+  stroke: red;
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
+}

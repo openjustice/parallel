@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+  </head>
+
+<body>
+
+
+
+<div class="container">
+  <h2>D3 assignment <a href="./index.html" class="chart_link">Parallel Coordinate Chart</a> <a class="chart_link" href="">Radar Chart</a></h2>
+
+  <h3>California Universities Rankings 2016</h3>
+
+  <div id="button1" class="center-select">
+
+  <select id="drop" name="drop">
+    <option value="cal_tech" selected="selected">Cal Tech</option>
+    <option value="stanford">Stanford</option>
+    <option value="berkeley">UC Berkeley</option>
+    <option value="ucla">UCLA</option>
+    <option value="ucsd">UCSD</option>
+    <option value="ucsb">UCSB</option>
+    <option value="ucd">UC Davis</option>
+    <option value="usc">USC</option>
+  </select>
+
+  </div>
+
+
+
+  <div id = 'button2' class="center-select">
+  <select id="drop2" name="drop">
+    <option value="cal_tech">Cal Tech</option>
+    <option value="stanford" selected="selected">Stanford</option>
+    <option value="berkeley">UC Berkeley</option>
+    <option value="ucla">UCLA</option>
+    <option value="ucsd">UCSD</option>
+    <option value="ucsb">UCSB</option>
+    <option value="ucd">UC Davis</option>
+    <option value="usc">USC</option>
+  </select>
+  </div>
+  <br>
+
+
+  <div class="chart-container"></div>
+</div>
+
+
+<script src="http://d3js.org/d3.v3.js"></script>
+<script src="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+<script>
+RadarChart.defaultConfig.color = function() {};
+RadarChart.defaultConfig.radius = 3;
+RadarChart.defaultConfig.w = 400;
+RadarChart.defaultConfig.h = 400;
+
+
+var cal_tech = [95.2,97.6,64,95.6,97.8];
+var stanford = [93.9,96.2,76.3,92.5,63.3];
+var berkeley = [87.2,91.1,61.9,80.4,47.9];
+var ucla = [85.8,88.6,56.4,80.8,47.9];
+var ucsd = [72.2,69.8,42.9,56.9,56.7];
+var ucsb = [72.2,66,61.5,52.6,90.4];
+var ucd = [71,72.7,58.4,60.1,57.3];
+var usc = [65.5,58.9,56.3,49.3,38];
+
+
+
+
+
+var schools = {"cal_tech": cal_tech, "stanford":stanford, "berkeley":berkeley, "ucla":ucla, "ucsd":ucsd, "ucsb":ucsb, "ucd":ucd, "usc":usc};
+
+ var a = cal_tech;
+ var b = stanford;
+
+$('#drop').on('change', function() {
+ var value = this.value;
+ a = schools[value];
+ console.log(a); // or $(this).val()
+
+ RadarChart.draw(".chart-container", createData(a,b));
+});
+
+$('#drop2').on('change', function() {
+ var value1 = this.value;
+ b = schools[value1];
+ console.log(b); // or $(this).val()
+
+ RadarChart.draw(".chart-container", createData(a,b));
+});
+
+
+
+function createData(value, value1) {
+  var dict = [
+  {
+    className: 'abc', // optional can be used for styling
+    axes: [
+      {axis: "total_score", value: value[0]}, 
+      {axis: "research", value: value[1]}, 
+      {axis: "international", value: value[2]},  
+      {axis: "teaching", value: value[3]},  
+      {axis: "income", value: value[4]}
+    ]
+  },
+
+  {
+    className: 'def', // optional can be used for styling
+    axes: [
+      {axis: "total_score", value: value1[0]}, 
+      {axis: "research", value: value1[1]}, 
+      {axis: "international", value: value1[2]},  
+      {axis: "teaching", value: value1[3]},  
+      {axis: "income", value: value1[4]}
+    ]
+  }
+]
+  return dict;
+}
+
+
+
+var data = createData(a,b);
+RadarChart.draw(".chart-container", data);
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
